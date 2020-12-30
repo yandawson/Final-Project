@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=gb2312" />
+     <style type="text/css">
+        #test1{
+            color: rgb(241, 238, 25);
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 50px;
+            font-family: "SimHei";
+        }
+        #test2{
+            font: bold italic 20px/50px "SimHei";
+            font-weight: bold;
+            font-style: italic;
+            font-size: 30px;
+            line-height: 50px;
+            font-family: "SimHei";
+            text-align: center;
+        }
+    </style>
+</head>
+
+<style>
+        body
+    {
+        background-image: url(bg.jpg);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+    }
+    .arrow{
+        border: 9px solid transparent;
+        border-bottom-color: #3DA0DB;
+        width: 0px;
+        height: 0px;
+        top:0px
+    }
+    .stick{
+        width: 8px;
+        height: 14px;
+        border-radius: 1px;
+        background-color: #3DA0DB;
+        top:15px;
+    }
+    #gotop div{
+        position: absolute;
+        margin: auto;
+        right: 0px;
+        left: 0px;
+    }
+    #gotop{
+        background-color: #dddddd;
+        height: 38px;
+        width: 38px;
+        border-radius: 3px;
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        right: 50px;
+        bottom: 100px;
+        display: none;
+
+    </style>
+
+    <style type="text/css">
+    img {
+        float: left;
+        border:15px solid rgb(252, 248, 248);
+    }
+    p{
+        padding-left: 340px;
+        
+    }
+    </style>
+</style>
+</head>
+
+
+<body>
+<head>
+    <div> <h3 id="test2" style= "background:rgb(233, 233, 153)" >Percé</h3></div>
+</head>
+<div>
+
+    
+	<img src="1.jpg" width=1280 height=720; /> <p id="test1" >Percé is a small city near the tip of the Gaspé Peninsula in Quebec, Canada. Within the territory of the city there is a village community also called Percé.
+
+        Percé, member of the association of Most Beautiful Villages of Quebec, is mainly a tourist location particularly well known for the attractions of Percé Rock and Bonaventure Island.
+        
+        In addition to Percé itself, the town's territory also includes the communities of Barachois, Belle-Anse, Bougainville, Bridgeville, Cap-d'Espoir, Cannes-de-Roches, Coin-du-Banc, L'Anse-à-Beaufils, Pointe-Saint-Pierre, Rameau, Saint-Georges-de-Malbaie, and Val-d'Espoir.
+        
+        Percé is the seat of the judicial district of Gaspé.
+    </p></div>
+
+<div> <img src="2.jpg" width=1580 height=820; style="float:right; margin: 5px;"/></div>
+<div> <img src="3.jpg" width=1580 height=820; style="float:left; margin: 5px;"/></div>
+<div> <img src="4.jpg" width=1280 height=820; style="float:right; margin: 5px;"/></div>
+<div> <img src="5.jpg" width=1220 height=780; style="float:left; margin: 5px;"/></div>
+
+<div id="article"></div>
+<div id="gotop">
+<div class="arrow"></div>
+<div class="stick"></div>
+</div>
+<script src="http://cdn.staticfile.org/jquery/1.11.1-rc2/jquery.min.js"></script>
+<script>
+$(function(){
+    for(var i =0 ;i <100;i++){
+        $("#article").append("<p><br></p>")
+    }
+
+})
+</script>
+<script>
+$(function(){
+
+    $(window).scroll(function(){  
+
+        var scrollt = document.documentElement.scrollTop + document.body.scrollTop; 
+
+        if( scrollt >200 ){  
+
+            $("#gotop").fadeIn(400); 
+
+        }else{
+
+            $("#gotop").stop().fadeOut(400); 
+
+        }
+
+    });
+
+    $("#gotop").click(function(){ 
+
+        $("html,body").animate({scrollTop:"0px"},200);
+
+    }); 
+
+});
+</script>
+
+</body>
+</html>

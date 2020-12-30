@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8" http-equiv="Content-Type" content="text/html; charset=gb2312" />
+     <style type="text/css">
+        #test1{
+            /*分开写的方式*/
+            color: rgb(211, 15, 15);
+            font-weight: bold;/*粗细：粗体*/
+            font-size: 25px;/*字的大小*/
+            line-height: 50px;/*行距*/
+            font-family: "SimHei";/*字体：黑体*/
+        }
+        #test2{
+            /*合并写的方式，按顺序*/
+            font: bold italic 20px/50px "SimHei";
+            font-weight: bold;/*粗细：粗体*/
+            font-style: italic;/*正斜：斜体*/
+            font-size: 30px;/*字的大小*/
+            line-height: 50px;/*行距*/
+            font-family: "SimHei";/*字体：黑体*/
+            text-align: center;
+        }
+    </style>
+</head>
+
+<style>
+        body
+    {
+        background-image: url(bg.jpg);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+    }
+    .arrow{
+        border: 9px solid transparent;
+        border-bottom-color: #3DA0DB;
+        width: 0px;
+        height: 0px;
+        top:0px
+    }
+    .stick{
+        width: 8px;
+        height: 14px;
+        border-radius: 1px;
+        background-color: #3DA0DB;
+        top:15px;
+    }
+    #gotop div{
+        position: absolute;
+        margin: auto;
+        right: 0px;
+        left: 0px;
+    }
+    #gotop{
+        background-color: #dddddd;
+        height: 38px;
+        width: 38px;
+        border-radius: 3px;
+        display: block;
+        cursor: pointer;
+        position: fixed;
+        right: 50px;
+        bottom: 100px;
+        display: none;
+
+    </style>
+
+<style type="text/css">
+    img {
+        float: left;
+        border:15px solid rgb(252, 248, 248);
+    }
+    p{
+        padding-left: 340px;
+        
+    }
+    </style>
+</style>
+</head>
+
+
+<body>
+<head>
+    <div> <h3 id="test2" style= "background:rgb(233, 233, 153)" >Parc national du Mont-Saint-Bruno</h3></div>
+</head>
+<div>
+
+    
+	<img src="00.jpg" width=1280 height=720; /> <p id="test1" >     Parc national du Mont-Saint-Bruno is just a few kilometres from the Montréal metropolitan area. 
+        Five lakes, an orchard, a historic mill and dozens of kilometres of trails make this park a true island of nature in an urban environment. 
+        Hundreds of species of flowers, trees and plants fill the area. 
+        Every breath you take brings a new perfume and every breeze carries this blend of very special scents only found in the forest. 
+        Some 200 bird species and about 40 mammal species share the territory. Encounters you can expect, summer and winter alike.
+    </p></div>
+
+<div> <img src="02.jpg" width=1280 height=820; style="float:right; margin: 5px;"/></div>
+<div> <img src="01.jpg" width=1280 height=820; style="float:left; margin: 5px;"/></div>
+<div> <img src="03.jpg" width=1280 height=820; style="float:right; margin: 5px;"/></div>
+<div> <img src="06.jpg" width=1620 height=780; style="float:left; margin: 5px;"/></div>
+
+<div id="article"></div>
+<div id="gotop">
+<div class="arrow"></div>
+<div class="stick"></div>
+</div>
+<script src="http://cdn.staticfile.org/jquery/1.11.1-rc2/jquery.min.js"></script>
+<script>
+$(function(){
+    for(var i =0 ;i <100;i++){
+        $("#article").append("<p><br></p>")
+    }
+
+})
+</script>
+<script>
+$(function(){
+
+    $(window).scroll(function(){  //只要窗口滚动,就触发下面代码
+
+        var scrollt = document.documentElement.scrollTop + document.body.scrollTop; //获取滚动后的高度
+
+        if( scrollt >200 ){  //判断滚动后高度超过200px,就显示
+
+            $("#gotop").fadeIn(400); //淡入
+
+        }else{
+
+            $("#gotop").stop().fadeOut(400); //如果返回或者没有超过,就淡出.必须加上stop()停止之前动画,否则会出现闪动
+
+        }
+
+    });
+
+    $("#gotop").click(function(){ //当点击标签的时候,使用animate在200毫秒的时间内,滚到顶部
+
+        $("html,body").animate({scrollTop:"0px"},200);
+
+    }); 
+
+});
+</script>
+
+</body>
+</html>
